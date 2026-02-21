@@ -13,3 +13,16 @@ filters:
     - Euclid_NISP.H.dat
     - Spitzer_IRAC.I1.dat
     - Spitzer_IRAC.I2.dat
+
+  filter_centers:
+    - 3665.89 
+    - 4850.98 
+    - 6265.24 
+    - 7767.72 
+    - 8917.86 
+    - 9789.78 
+    - 10866.24 
+    - 13766.64 
+    - 17825.15 
+    - 35572.59 
+    - 45049.28
