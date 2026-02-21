@@ -10,7 +10,9 @@ def read_filters():
 
     paths = [f"{base}/{f}" for f in filters]
 
-    return paths
+    filter_names = config["filters"]["filter_names"]
+
+    return paths, filter_names
 
 def read_filter_data(paths):
     """

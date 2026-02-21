@@ -1,6 +1,19 @@
 filters:
   base_path: Filters/
 
+  filter_names:
+    - cfht_u_flux_ujy
+    - hsc_g_flux_ujy
+    - hsc_r_flux_ujy
+    - hsc_i_flux_ujy
+    - hsc_z_flux_ujy
+    - hsc_y_flux_ujy
+    - nisp_y_flux_ujy
+    - nisp_j_flux_ujy
+    - nisp_h_flux_ujy
+    - irac_ch1_flux_ujy
+    - irac_ch2_flux_ujy
+
   list:
     - CFHT_MegaCam.u.dat
     - Subaru_HSC.g.dat
