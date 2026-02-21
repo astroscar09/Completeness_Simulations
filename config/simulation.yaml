@@ -1,0 +1,17 @@
+spectrum:
+  wav_rest_min: 912
+  wav_rest_max: 40000
+  wav_grid_points: 2000
+  wav_break: 3500
+  norm_wav: 1500
+
+parameter_grid:
+  Muv:
+    min: -22
+    max: -18
+    num_samples: 50
+
+  z:
+    min: 1.5
+    max: 4
+    num_samples: 50

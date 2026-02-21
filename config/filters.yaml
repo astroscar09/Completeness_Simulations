@@ -1,0 +1,15 @@
+filters:
+  base_path: Filters/
+
+  list:
+    - CFHT_MegaCam.u.dat
+    - Subaru_HSC.g.dat
+    - Subaru_HSC.r.dat
+    - Subaru_HSC.i.dat
+    - Subaru_HSC.z.dat
+    - Subaru_HSC.y.dat
+    - Euclid_NISP.Y.dat
+    - Euclid_NISP.J.dat
+    - Euclid_NISP.H.dat
+    - Spitzer_IRAC.I1.dat
+    - Spitzer_IRAC.I2.dat
