@@ -1,4 +1,4 @@
-from .yaml_handler import *
+from .yaml_handler import load_config
 import numpy as np
 
 def read_filters():

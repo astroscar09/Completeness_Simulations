@@ -1,0 +1,51 @@
+# FONT
+font.family: serif
+font.serif: Times New Roman
+mathtext.fontset: cm
+font.size: 10
+
+# FIGURE
+figure.figsize: 3.5, 2.5  # good size for single-column papers
+figure.dpi: 150
+savefig.dpi: 150
+savefig.bbox: tight
+
+# AXES
+axes.labelsize: 10
+axes.titlesize: 10
+axes.linewidth: 2
+axes.grid: False
+axes.spines.top: True
+axes.spines.right: True
+
+# TICKS
+xtick.labelsize: 8
+ytick.labelsize: 8
+
+xtick.minor.visible: True
+ytick.minor.visible: True
+
+# Optional styling
+xtick.direction: in
+ytick.direction: in
+
+xtick.major.size: 6
+xtick.major.width: 1.2
+xtick.minor.size: 3
+xtick.minor.width: 0.8
+
+ytick.major.size: 6
+ytick.major.width: 1.2
+ytick.minor.size: 3
+ytick.minor.width: 0.8
+
+# LINES
+lines.linewidth: 1.2
+lines.markersize: 4
+
+# LEGEND
+legend.fontsize: 8
+legend.frameon: False
+
+# COLOR MAP
+image.cmap: turbo

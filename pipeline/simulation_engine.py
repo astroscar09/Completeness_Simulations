@@ -1,5 +1,5 @@
 from physics.spectra import generate_restframe_spectrum
-from physics.photometry_projection import project_spectrum_to_photometric_bands
+from physics.photometry_projection import photometry
 
 def run_single_simulation(
     Muv,
@@ -21,7 +21,7 @@ def run_single_simulation(
         wav_range=(912, 40000),
     )
 
-    photometry = project_spectrum_to_photometric_bands(
+    photometry = photometry(
         spectrum,
         filter_trans,
         grid_wav,

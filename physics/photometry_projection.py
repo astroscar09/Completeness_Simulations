@@ -39,8 +39,9 @@ def compute_fluxes(filter_grid, interp_fluxes, grid_wav):
         fluxes.append(f)
     return np.array(fluxes)
 
-def photometry(Muv, z, beta_uv, beta_opt, filter_trans, grid_wav, plot = None):
+def photometry(flux, filter_trans, grid_wav, plot = None):
     
-    flux = compute_interpolated_fluxes(Muv, z, beta_uv, beta_opt, grid_wav)
+    #Muv, z, beta_uv, beta_opt, flux, filter_trans, grid_wav, plot = None
+    #flux = compute_interpolated_fluxes(Muv, z, beta_uv, beta_opt, grid_wav)
     photom = compute_fluxes(filter_trans, flux, grid_wav)
     return np.array(photom)

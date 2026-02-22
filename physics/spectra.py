@@ -1,4 +1,5 @@
 import numpy as np
+from .cosmology_scaling import *
 
 
 def generate_restframe_spectrum(
@@ -6,11 +7,12 @@ def generate_restframe_spectrum(
                                     beta_opt: float,
                                     wav_break: float,
                                     norm_wav: float,
-                                    wav_range: tuple
+                                    wav_range: tuple, 
+                                    wav_grid_points: int,
                                 ) -> tuple[np.ndarray, np.ndarray]:
 
     # Wavelength grid (rest-frame)
-    wav_rest = np.linspace(wav_range[0], wav_range[1], 2000)  # Å
+    wav_rest = np.linspace(wav_range[0], wav_range[1], wav_grid_points)  # Å
 
     # Power-law spectrum
     flux_lambda_rest = np.where(
@@ -24,12 +26,13 @@ def generate_restframe_spectrum(
 
 def generate_mock_spectrum(Muv, redshift, beta_uv, beta_opt, 
                            wav_break=3500, wav_rest_range=(912, 40000), 
+                           wav_grid_points = 2000,
                            norm_wav=1500):
     """
     Generate a mock rest-frame + redshifted spectrum using UV and optical slopes.
     """
     # Wavelength grid (rest-frame)
-    wav_rest = np.linspace(wav_rest_range[0], wav_rest_range[1], 2000)  # Å
+    wav_rest = np.linspace(wav_rest_range[0], wav_rest_range[1], wav_grid_points)  # Å
 
     # Power-law spectrum
     flux_rest = np.where(
@@ -38,11 +41,8 @@ def generate_mock_spectrum(Muv, redshift, beta_uv, beta_opt,
         (wav_break / norm_wav)**beta_uv * (wav_rest / wav_break)**beta_opt
     )
 
-    #flux_rest = (wav_rest**2 / 3e18) * flux_lambda_rest  # Convert to F_nu
-
     # Normalize to Muv
     norm_flux_flambda =  Muv_to_F_lambda_cgs(Muv, redshift) 
-
 
     flux_rest *= norm_flux_flambda
 

@@ -2,6 +2,12 @@ import numpy as np
 import pandas as pd
 from astropy.table import Table
 
+def ABMag_to_fnu(mag):
+
+    fnu = 10**((mag + 48.6)/-2.5)
+
+    return fnu
+
 def perturb_photometry(photom, errors, num_realization):
 
 
