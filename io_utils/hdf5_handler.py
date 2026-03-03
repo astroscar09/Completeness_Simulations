@@ -12,11 +12,8 @@ def save_simulation_results(
         f.create_dataset('param_combinations', data=params)
 
 
-def read_simulation_results(
-    filepath: str,
-
-):
+def read_simulation_results(filepath: str,):
     
     with h5py.File(filepath, 'r') as f:
-        f
+        return f
     

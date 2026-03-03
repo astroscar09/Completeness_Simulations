@@ -1,5 +1,4 @@
 import matplotlib.pyplot as plt
-#plt.style.use('style.mplstyle')
 
 plt.rcParams['axes.linewidth'] = 1.5
 plt.rcParams['font.family'] = 'serif'

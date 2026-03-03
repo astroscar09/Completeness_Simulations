@@ -7,8 +7,6 @@ from pipeline.simulation_engine import generate_param_combinations, make_worker_
 import numpy as np
 
 
-
-
 def main():
 
     cfg = load_config("config/simulation.yaml")
@@ -84,33 +82,5 @@ def main():
     return final_phot_cat
     
 
-
-
-
 if __name__ == '__main__':
     main()
-
-
-# Muv = -18.9 #
-# redshift = 2 
-
-# beta_uv = -1.2227562
-# beta_opt = 0.02761
-
-
-
-# wav_obs, flux_obs_flam, phot_flam = run_single_simulation((Muv,
-#                                                             redshift,
-#                                                             beta_uv,
-#                                                             beta_opt),
-#                                                             spec_wav_grid,
-#                                                             wave_break,
-#                                                             norm_wave, 
-#                                                             filter_wave_grid, 
-#                                                             all_filters)
-
-# phot_fnu = phot_flam * (filt_centers**2 / 3e18)
-
-
-# fig, ax = plot_setup()
-# plot_spectrum(wav_obs, flux_obs_flam, ax, show = True)
