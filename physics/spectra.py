@@ -24,15 +24,14 @@ def generate_restframe_spectrum(
     return flux_lambda_rest, wav_rest
 
 
-def generate_mock_spectrum(Muv, redshift, beta_uv, beta_opt, 
-                           wav_break=3500, wav_rest_range=(912, 40000), 
-                           wav_grid_points = 2000,
+def generate_mock_spectrum(Muv, redshift, beta_uv, beta_opt, wav_rest,
+                           wav_break=3500,
                            norm_wav=1500):
     """
     Generate a mock rest-frame + redshifted spectrum using UV and optical slopes.
     """
     # Wavelength grid (rest-frame)
-    wav_rest = np.linspace(wav_rest_range[0], wav_rest_range[1], wav_grid_points)  # Å
+    # wav_rest = np.linspace(wav_rest_range[0], wav_rest_range[1], wav_grid_points)  # Å
 
     # Power-law spectrum
     flux_rest = np.where(
@@ -46,10 +45,14 @@ def generate_mock_spectrum(Muv, redshift, beta_uv, beta_opt,
 
     flux_rest *= norm_flux_flambda
 
-    flux_rest_fnu = flux_rest * (wav_rest**2 / 3e18)  # Convert to F_nu
-
     # Redshift to observed frame
     wav_obs = wav_rest * (1 + redshift)
-    flux_obs = flux_rest_fnu / (1 + redshift)
+    flux_obs_flam = flux_rest / (1 + redshift)
 
-    return wav_obs, flux_obs
+    return wav_obs, flux_obs_flam
+
+def compute_interpolated_spectra(wav_obs, flux_obs, filter_grid_wav):
+    
+    interp_fluxes = np.interp(filter_grid_wav, wav_obs, flux_obs, left = 0, right = 0)
+    
+    return interp_fluxes

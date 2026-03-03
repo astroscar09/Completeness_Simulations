@@ -7,34 +7,39 @@ spectrum:
 
 parameter_grid:
   Muv:
-    min: -22
-    max: -18
-    num_samples: 50
+    min: -27
+    max: -16
+    spacing: 0.2
 
   beta_uv:
     min: -2.87
     max: -0.37
-    num_samples: 50
+    spacing: .1
 
   beta_opt:
     min: 0 
     max: 5
-    num_samples: 50
+    num_samples: .1
 
   z:
-    min: 1.5
+    min: 1.0
     max: 4
-    num_samples: 50
+    spacing: .1
 
 photometry_errors:
-    - 3.07609681e-30, 
-    - 1.88799135e-31, 
-    - 3.56451133e-31, 
-    - 2.53512863e-31,
-    - 1.87068214e-30, 
-    - 5.49540874e-31, 
-    - 2.08929613e-30, 
-    - 1.95884467e-30,
-    - 2.16770410e-30, 
-    - 8.55066713e-33, 
-    - 8.31763771e-33]
+    - 3.07609681e-30 
+    - 1.88799135e-31 
+    - 3.56451133e-31 
+    - 2.53512863e-31
+    - 1.87068214e-30 
+    - 5.49540874e-31 
+    - 2.08929613e-30 
+    - 1.95884467e-30
+    - 2.16770410e-30 
+    - 8.55066713e-33 
+    - 8.31763771e-33
+
+filter_grid_bounds:
+  min: 1000
+  max: 60000
+  wav_grid_points: 20000

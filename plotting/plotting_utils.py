@@ -1,12 +1,21 @@
 import matplotlib.pyplot as plt
-plt.style.use('style.mplstyle')
+#plt.style.use('style.mplstyle')
 
-def plot_spectrum(wave, flux):
+plt.rcParams['axes.linewidth'] = 1.5
+plt.rcParams['font.family'] = 'serif'
+plt.rcParams['xtick.labelsize'] = 12
+plt.rcParams['ytick.labelsize'] = 12
 
-    fig, ax = plt.subplots(1, 1, figsize = (10, 5))
+def plot_setup():
+    
+    fig, ax = plt.subplots(1, 1)
+    ax.set_xlabel('Wavelength', fontsize = 15)
+
+    return fig, ax
+
+def plot_spectrum(wave, flux, ax, show = None):
+
     ax.loglog(wave, flux)
+    if show:
+        plt.show()
 
-    ax.set_xlabel('Wavelength')
-    ax.set_ylabel('Flux')
-
-    return fig, ax 

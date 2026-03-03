@@ -7,12 +7,13 @@ def read_filters():
 
     base = config["filters"]["base_path"]
     filters = config["filters"]["list"]
+    centers = config['filters']['filter_centers']
 
     paths = [f"{base}/{f}" for f in filters]
 
     filter_names = config["filters"]["filter_names"]
 
-    return paths, filter_names
+    return paths, filter_names, np.array(centers)
 
 def read_filter_data(paths):
     """
