@@ -1,6 +1,6 @@
 import numpy as np
 import pandas as pd
-from astropy.table import Table
+from astropy.table import Table, hstack
 from itertools import product
 
 def ABMag_to_fnu(mag):
@@ -12,6 +12,13 @@ def ABMag_to_fnu(mag):
 def Fnu_to_ABMag(fnu):
 
     return -2.5*np.log10(fnu) - 48.6
+
+def merge_tables_horizontally(tab1, tab2):
+    return hstack((tab1, tab2))
+
+def make_param_table(params):
+
+    return Table(params, names = ['Muv', 'z', 'beta_uv', 'beta_opt'])
 
 
 def perturb_photometry(photom, errors, num_realization):

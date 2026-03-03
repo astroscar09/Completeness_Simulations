@@ -9,22 +9,22 @@ parameter_grid:
   Muv:
     min: -27
     max: -16
-    spacing: 0.2
+    spacing: 2.5
 
   beta_uv:
     min: -2.87
     max: -0.37
-    spacing: .1
+    spacing: 1
 
   beta_opt:
     min: 0 
     max: 5
-    spacing: .1
+    spacing: 1
 
   z:
     min: 1.0
     max: 4
-    spacing: .1
+    spacing: 1
 
 photometry_errors:
     - 3.07609681e-30 
@@ -43,6 +43,3 @@ filter_grid_bounds:
   min: 1000
   max: 60000
   wav_grid_points: 20000
-
-num_cores: 7
-   
