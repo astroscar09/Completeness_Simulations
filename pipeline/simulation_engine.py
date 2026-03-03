@@ -4,6 +4,20 @@ from functools import partial
 from itertools import product
 
 def generate_param_combinations(Muv, z, beta_uv, beta_opt):
+    """
+    Create a Cartesian product of parameter lists for the simulation.
+
+    Parameters
+    ----------
+    Muv, z, beta_uv, beta_opt : sequence
+        One-dimensional iterables representing the grid points for each
+        parameter.
+
+    Returns
+    -------
+    param_grid : list of tuples
+        Each tuple has the form ``(Muv, z, beta_uv, beta_opt)``.
+    """
 
     param_grid = list(product(Muv, z, beta_uv, beta_opt))
 
@@ -38,6 +52,11 @@ def make_worker_function(   spec_wav_grid,
                             norm_wave, 
                             filter_wave_grid, 
                             all_filters):
+    """Return a configured partial for ``run_single_simulation``.
+
+    The returned callable only requires the ``params`` argument, as the
+    wavelength grids and filter definitions are bound.
+    """
 
     worker = partial(
                         run_single_simulation,

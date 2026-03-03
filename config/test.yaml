@@ -43,3 +43,5 @@ filter_grid_bounds:
   min: 1000
   max: 60000
   wav_grid_points: 20000
+
+num_cores: 6

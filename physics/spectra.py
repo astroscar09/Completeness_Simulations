@@ -10,6 +10,31 @@ def generate_restframe_spectrum(
                                     wav_range: tuple, 
                                     wav_grid_points: int,
                                 ) -> tuple[np.ndarray, np.ndarray]:
+    """
+    Create a broken power‑law spectrum in the rest frame.
+
+    Parameters
+    ----------
+    beta_uv : float
+        Spectral slope shortward of ``wav_break``.
+    beta_opt : float
+        Spectral slope longward of ``wav_break``.
+    wav_break : float
+        Break wavelength (Å).
+    norm_wav : float
+        Normalization wavelength (Å) used in the power law.
+    wav_range : tuple
+        (min, max) rest‑frame wavelength range (Å).
+    wav_grid_points : int
+        Number of grid points to sample between ``wav_range``.
+
+    Returns
+    -------
+    flux_lambda_rest : ndarray
+        Flux density per unit wavelength on the rest frame grid.
+    wav_rest : ndarray
+        Wavelength grid (Å) corresponding to ``flux_lambda_rest``.
+    """
 
     # Wavelength grid (rest-frame)
     wav_rest = np.linspace(wav_range[0], wav_range[1], wav_grid_points)  # Å
