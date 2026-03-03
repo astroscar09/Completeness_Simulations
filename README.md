@@ -2,7 +2,7 @@
 
 ## Overview 
 
-he discovery of compact red galaxy candidates in data from the James Webb Space Telescope has opened new avenues for studying galaxy formation in the early universe. Understanding whether similar populations exist at lower redshifts is critical for constraining galaxy evolution models and assessing the physical nature of these sources.
+The discovery of compact red galaxy candidates in data from the James Webb Space Telescope has opened new avenues for studying galaxy formation in the early universe. Understanding whether similar populations exist at lower redshifts is critical for constraining galaxy evolution models and assessing the physical nature of these sources.
 
 This work supports research efforts at the University of Texas at Austin to characterize the abundance of LRD-like galaxies in the nearby universe. In particular, undergraduate researcher Hannah Lawson is conducting a systematic search for these objects and investigating their population statistics.
 
