@@ -31,6 +31,14 @@ These mock sources are injected into the analysis pipeline to assess:
 - Regions of parameter space where LRD-like sources are missed
 - Potential improvements to selection criteria
 
-The simulation suite explores a multidimensional grid of astrophysical and observational parameters to ensure comprehensive coverage of plausible source characteristics.
+The simulation suite explores a multidimensional grid of astrophysical and observational parameters to ensure comprehensive coverage of plausible source characteristics. An example of the generated spectrum can be seen below where we model the brightness, redshift and the UV and Optical beta slopes. 
+
+![Simulated Sprectrum](plots/example_spectrum.png)
+
+The end result of this is that many realizations for a wide combination of brightness, redshifts and UV and Optical beta slopes are generated. We then pass these into a photometric redshift code to see if we are able to recover these sources as LRDs. Using a separate completeness correction code we are able to quantify the completeness with regards to LRDs in a sample as a function of brightness Muv and redshift. 
+
+![Completeness Correction](plots/checking_completeness.png)
+
+
 
 
