@@ -51,7 +51,8 @@ def generate_restframe_spectrum(
 
 def generate_mock_spectrum(Muv, redshift, beta_uv, beta_opt, wav_rest,
                            wav_break=3500,
-                           norm_wav=1500):
+                           norm_wav=1500,
+                           dl_cache=None):
     """
     Generate a mock rest-frame + redshifted spectrum using UV and optical slopes.
     """
@@ -66,7 +67,7 @@ def generate_mock_spectrum(Muv, redshift, beta_uv, beta_opt, wav_rest,
     )
 
     # Normalize to Muv
-    norm_flux_flambda =  Muv_to_F_lambda_cgs(Muv, redshift) 
+    norm_flux_flambda =  Muv_to_F_lambda_cgs(Muv, redshift, dl_cache=dl_cache)
 
     flux_rest *= norm_flux_flambda
 

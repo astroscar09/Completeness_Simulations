@@ -2,6 +2,7 @@ from io_utils.filter_reader import read_filters, read_filter_data
 from io_utils.yaml_handler import load_config
 from physics.photometry_projection import map_transmission_curves_to_grid
 from physics.data_processesing import perturb_photometry, make_photom_cat, convert_flambda_to_fnu, convert_fnu_to_microjansky, make_param_table, merge_tables_horizontally
+from physics.cosmology_scaling import build_dl_cache
 from pipeline.experiment_launcher import run_experiment_sweep
 from pipeline.simulation_engine import generate_param_combinations, make_worker_function
 import numpy as np
@@ -38,6 +39,7 @@ def main():
     z_max = cfg['parameter_grid']['z']['max']
     z_spacing = cfg['parameter_grid']['z']['spacing']
     z = np.arange(z_min, z_max+z_spacing, z_spacing)
+    dl_cache = build_dl_cache(z)
 
     beta_uv_min = cfg['parameter_grid']['beta_uv']['min']
     beta_uv_max = cfg['parameter_grid']['beta_uv']['max']
@@ -57,9 +59,10 @@ def main():
 
     worker = make_worker_function(   spec_wav_grid,
                                     wave_break,
-                                    norm_wave, 
-                                    filter_wave_grid, 
-                                    all_filters)
+                                    norm_wave,
+                                    filter_wave_grid,
+                                    all_filters,
+                                    dl_cache=dl_cache)
 
     ncores = cfg['num_cores']
     results = run_experiment_sweep(param_grid, worker, ncores)

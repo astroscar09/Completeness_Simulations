@@ -27,19 +27,21 @@ def run_single_simulation(
     params,
     spec_wav_grid,
     wave_break,
-    norm_wave, 
-    filter_wave_grid, 
-    all_filters   
+    norm_wave,
+    filter_wave_grid,
+    all_filters,
+    dl_cache=None,
 ):
     """
     Execute one forward-model simulation.
     """
     Muv, z, beta_uv, beta_opt = params
 
-    wav_obs, flux_obs_flam = generate_mock_spectrum(Muv, z, beta_uv, beta_opt, 
+    wav_obs, flux_obs_flam = generate_mock_spectrum(Muv, z, beta_uv, beta_opt,
                                                     spec_wav_grid,
-                                                    wave_break, 
-                                                    norm_wave)
+                                                    wave_break,
+                                                    norm_wave,
+                                                    dl_cache=dl_cache)
     
     interp_fluxes    = compute_interpolated_spectra(wav_obs, flux_obs_flam, filter_wave_grid)
 
@@ -49,13 +51,14 @@ def run_single_simulation(
 
 def make_worker_function(   spec_wav_grid,
                             wave_break,
-                            norm_wave, 
-                            filter_wave_grid, 
-                            all_filters):
+                            norm_wave,
+                            filter_wave_grid,
+                            all_filters,
+                            dl_cache=None):
     """Return a configured partial for ``run_single_simulation``.
 
     The returned callable only requires the ``params`` argument, as the
-    wavelength grids and filter definitions are bound.
+    wavelength grids, filter definitions, and optional dl_cache are bound.
     """
 
     worker = partial(
@@ -64,7 +67,8 @@ def make_worker_function(   spec_wav_grid,
                         wave_break=wave_break,
                         norm_wave=norm_wave,
                         filter_wave_grid=filter_wave_grid,
-                        all_filters=all_filters
+                        all_filters=all_filters,
+                        dl_cache=dl_cache,
                     )
-    
+
     return worker
