@@ -73,7 +73,7 @@ def generate_mock_spectrum(Muv, redshift, beta_uv, beta_opt, wav_rest,
 
     # Redshift to observed frame
     wav_obs = wav_rest * (1 + redshift)
-    flux_obs_flam = flux_rest / (1 + redshift)
+    flux_obs_flam = flux_rest
 
     return wav_obs, flux_obs_flam
 
